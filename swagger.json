@@ -40669,16 +40669,6 @@
           "naming": {
             "$ref": "#/components/schemas/AppPriceNaming"
           },
-          "monthProductId": {
-            "type": "string",
-            "description": "商店订阅产品 ID",
-            "nullable": true
-          },
-          "yearProductId": {
-            "type": "string",
-            "description": "商店订阅产品 ID",
-            "nullable": true
-          },
           "description": {
             "type": "string",
             "description": "简单描述\r\n适用于个人网站和任何想用基本的聊天方式与游客交流的人。\r\n适用于希望改善客户关系的早期创业公司。\r\n为需要全功能解决方案与客户沟通的公司而设。",
@@ -40688,64 +40678,6 @@
             "type": "string",
             "description": "APPID",
             "format": "uuid"
-          },
-          "monthPrice": {
-            "type": "number",
-            "description": "价格",
-            "format": "double"
-          },
-          "monthDiscount": {
-            "type": "number",
-            "description": "折扣",
-            "format": "double",
-            "nullable": true
-          },
-          "monthDiscountPrice": {
-            "type": "number",
-            "description": "折扣后价格 DiscountPrice = Price * Discount",
-            "format": "double",
-            "nullable": true
-          },
-          "monthDiscountStartAt": {
-            "type": "string",
-            "description": "折扣开始时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "monthDiscountEndAt": {
-            "type": "string",
-            "description": "折扣结束时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "yearPrice": {
-            "type": "number",
-            "description": "价格",
-            "format": "double"
-          },
-          "yearDiscount": {
-            "type": "number",
-            "description": "折扣",
-            "format": "double",
-            "nullable": true
-          },
-          "yearDiscountPrice": {
-            "type": "number",
-            "description": "折扣后价格 DiscountPrice = Price * Discount",
-            "format": "double",
-            "nullable": true
-          },
-          "yearDiscountStartAt": {
-            "type": "string",
-            "description": "折扣开始时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "yearDiscountEndAt": {
-            "type": "string",
-            "description": "折扣结束时间",
-            "format": "date-time",
-            "nullable": true
           },
           "sortIndex": {
             "type": "integer",
@@ -43410,16 +43342,6 @@
           "naming": {
             "$ref": "#/components/schemas/AppPriceNaming"
           },
-          "monthProductId": {
-            "type": "string",
-            "description": "商店订阅产品 ID",
-            "nullable": true
-          },
-          "yearProductId": {
-            "type": "string",
-            "description": "商店订阅产品 ID",
-            "nullable": true
-          },
           "description": {
             "type": "string",
             "description": "简单描述\r\n适用于个人网站和任何想用基本的聊天方式与游客交流的人。\r\n适用于希望改善客户关系的早期创业公司。\r\n为需要全功能解决方案与客户沟通的公司而设。",
@@ -43429,64 +43351,6 @@
             "type": "string",
             "description": "APPID",
             "format": "uuid"
-          },
-          "monthPrice": {
-            "type": "number",
-            "description": "价格",
-            "format": "double"
-          },
-          "monthDiscount": {
-            "type": "number",
-            "description": "折扣",
-            "format": "double",
-            "nullable": true
-          },
-          "monthDiscountPrice": {
-            "type": "number",
-            "description": "折扣后价格 DiscountPrice = Price * Discount",
-            "format": "double",
-            "nullable": true
-          },
-          "monthDiscountStartAt": {
-            "type": "string",
-            "description": "折扣开始时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "monthDiscountEndAt": {
-            "type": "string",
-            "description": "折扣结束时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "yearPrice": {
-            "type": "number",
-            "description": "价格",
-            "format": "double"
-          },
-          "yearDiscount": {
-            "type": "number",
-            "description": "折扣",
-            "format": "double",
-            "nullable": true
-          },
-          "yearDiscountPrice": {
-            "type": "number",
-            "description": "折扣后价格 DiscountPrice = Price * Discount",
-            "format": "double",
-            "nullable": true
-          },
-          "yearDiscountStartAt": {
-            "type": "string",
-            "description": "折扣开始时间",
-            "format": "date-time",
-            "nullable": true
-          },
-          "yearDiscountEndAt": {
-            "type": "string",
-            "description": "折扣结束时间",
-            "format": "date-time",
-            "nullable": true
           },
           "sortIndex": {
             "type": "integer",
