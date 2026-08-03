@@ -1,3 +1,7 @@
+## 1.2.1
+
+ - **REFACTOR**(felorx_sdk_generator): 移除旧定价字段.
+
 ## 1.2.0
 
  - **REFACTOR**(sdk): 迁移 Felorx Python 生成目标.
