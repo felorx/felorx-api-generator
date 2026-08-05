@@ -12763,6 +12763,13 @@
             }
           },
           {
+            "name": "Architecture",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "Sorting",
             "in": "query",
             "schema": {
@@ -13460,6 +13467,13 @@
             }
           },
           {
+            "name": "Architecture",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "Sorting",
             "in": "query",
             "schema": {
@@ -13662,6 +13676,13 @@
           },
           {
             "name": "Publisher",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Architecture",
             "in": "query",
             "schema": {
               "type": "string"
@@ -16638,6 +16659,14 @@
             }
           },
           {
+            "name": "Architecture",
+            "in": "query",
+            "description": "目标架构",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "Environment",
             "in": "query",
             "description": "环境",
@@ -18165,6 +18194,13 @@
           },
           {
             "name": "environment",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "architecture",
             "in": "query",
             "schema": {
               "type": "string"
@@ -40965,6 +41001,11 @@
           "artifactType": {
             "$ref": "#/components/schemas/ArtifactType"
           },
+          "architecture": {
+            "maxLength": 32,
+            "type": "string",
+            "nullable": true
+          },
           "publisher": {
             "$ref": "#/components/schemas/AppPublisher"
           },
@@ -42183,6 +42224,12 @@
           "artifactType": {
             "$ref": "#/components/schemas/ArtifactType"
           },
+          "architecture": {
+            "maxLength": 32,
+            "type": "string",
+            "description": "目标架构；空值或空字符串表示通用制品。",
+            "nullable": true
+          },
           "environment": {
             "type": "string",
             "description": "环境",
@@ -42621,6 +42668,12 @@
           },
           "artifactType": {
             "$ref": "#/components/schemas/ArtifactType"
+          },
+          "architecture": {
+            "maxLength": 32,
+            "type": "string",
+            "description": "目标架构（x64、arm64、arm、riscv64、universal 或 multiarch）。",
+            "nullable": true
           },
           "environment": {
             "type": "string",
@@ -43453,6 +43506,11 @@
           },
           "artifactType": {
             "$ref": "#/components/schemas/ArtifactType"
+          },
+          "architecture": {
+            "maxLength": 32,
+            "type": "string",
+            "nullable": true
           },
           "publisher": {
             "$ref": "#/components/schemas/AppPublisher"
