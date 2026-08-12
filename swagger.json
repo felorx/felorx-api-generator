@@ -42147,6 +42147,12 @@
           "systemVersion": {
             "type": "string",
             "nullable": true
+          },
+          "appName": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "发起绑定的应用名。服务端优先使用访问令牌中的可信 app_name 声明。",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -44333,6 +44339,10 @@
             "nullable": true
           },
           "systemVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "appName": {
             "type": "string",
             "nullable": true
           }
