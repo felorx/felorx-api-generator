@@ -1,3 +1,7 @@
+## 1.3.0
+
+ - **FEAT**(felorx_sdk_generator): 同步设备应用名契约.
+
 ## 1.2.1
 
  - **REFACTOR**(felorx_sdk_generator): 移除旧定价字段.
