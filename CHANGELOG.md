@@ -1,3 +1,7 @@
+## 1.6.0
+
+ - **FEAT**(felorx_sdk_generator): update version to 1.5.0 and add changelog entry for the new release.
+
 ## 1.5.0
 
  - **FEAT**(felorx_sdk_generator): update version to 1.4.0 and add changelog entry for device application name synchronization.
