@@ -1,0 +1,58 @@
+package {{packageName}}
+
+import (
+    "context"
+    "errors"
+    "net/url"
+    "strings"
+)
+
+// CreateResponseRawStream uses the generated client's server, HTTP transport,
+// default headers and ContextAccessToken. Native JSON extensions are retained.
+func (c *APIClient) CreateResponseRawStream(ctx context.Context, body map[string]interface{}, provider string, emit func(FelorxResponseStreamEvent) error) error {
+    return c.streamResponse(ctx, body, provider, "ResponsesAPIService.CreateResponse", "/api/ai/v1/responses", emit)
+}
+
+func (c *APIClient) CreateResponseLegacyRawStream(ctx context.Context, body map[string]interface{}, provider string, emit func(FelorxResponseStreamEvent) error) error {
+    return c.streamResponse(ctx, body, provider, "ResponsesAPIService.CreateResponseLegacy", "/api/ai/openai/responses", emit)
+}
+
+func (c *APIClient) streamResponse(ctx context.Context, body map[string]interface{}, provider, operation, path string, emit func(FelorxResponseStreamEvent) error) error {
+    if c == nil || c.cfg == nil || ctx == nil { return errors.New("invalid Responses client") }
+    base, err := c.cfg.ServerURLWithContext(ctx, operation)
+    if err != nil { return err }
+    endpoint, err := url.Parse(strings.TrimRight(base, "/")+path)
+    if err != nil { return errors.New("invalid Responses server URL") }
+    if c.cfg.Host != "" { endpoint.Host = c.cfg.Host }
+    if c.cfg.Scheme != "" { endpoint.Scheme = c.cfg.Scheme }
+    headers := make(map[string]string, len(c.cfg.DefaultHeader)+1)
+    token := ""
+    authSeen, providerSeen := false, false
+    for name, value := range c.cfg.DefaultHeader {
+        switch {
+        case strings.EqualFold(name, "Authorization"):
+            if authSeen { return errors.New("ambiguous Responses authorization header") }
+            authSeen = true
+            scheme, credential, ok := strings.Cut(value, " ")
+            if !ok || !strings.EqualFold(scheme, "Bearer") { return errors.New("expected Bearer authentication") }
+            token = credential
+        case strings.EqualFold(name, "X-Felorx-Ai-Provider"):
+            if providerSeen { return errors.New("ambiguous Responses provider header") }
+            providerSeen = true
+            if provider == "" { provider = value }
+        default: headers[name] = value
+        }
+    }
+    // The generator declares this typed context key even when a minimal input
+    // specification omits bearer security and its exported constant.
+    if value := ctx.Value(contextKey("accesstoken")); value != nil {
+        var ok bool
+        token, ok = value.(string)
+        if !ok { return errors.New("invalid Responses access token") }
+    }
+    if c.cfg.UserAgent != "" { headers["User-Agent"] = c.cfg.UserAgent }
+    return StreamResponses(ctx, FelorxResponseStreamOptions{
+        Endpoint:endpoint.String(), BearerToken:token, Provider:provider,
+        HTTPClient:c.cfg.HTTPClient, AdditionalHeaders:headers,
+    }, body, emit)
+}

@@ -1,0 +1,321 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:dio/dio.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
+
+void check(bool value, String message) {
+  if (!value) throw StateError(message);
+}
+
+Future<void> rejects(
+  Future<void> Function() action,
+  bool Function(Object) match,
+) async {
+  try {
+    await action();
+  } catch (error) {
+    if (match(error)) return;
+    rethrow;
+  }
+  throw StateError('Expected failure');
+}
+
+Future<void> main() async {
+  // Feed every UTF-8 byte separately, including split CRLF, BOM, comments,
+  // multiline data, ignored fields, and event names inferred from JSON.
+  final wire =
+      '\uFEFF:keepalive\r\nid: ignored\r\n'
+      'event: response.output_text.delta\r\n'
+      'data: {"type":"response.output_text.delta",\r\n'
+      'data: "delta":"你好"}\r\n\r\n'
+      'data: {"type":"response.completed","response":{"status":"completed"}}\r\n\r\n';
+  final events = await decodeFelorxResponseStream(
+    Stream.fromIterable(utf8.encode(wire).map((byte) => [byte])),
+  ).toList();
+  check(
+    events.length == 2 &&
+        events.first.data['delta'] == '你好' &&
+        events.last.isTerminal,
+    'Split SSE framing',
+  );
+  for (final invalid in [
+    'data: {"type":"response.created"}\n\n',
+    'event: response.completed\ndata: {"type":"response.failed"}\n\n',
+    'data: []\n\n',
+    'data: [DONE]\n\n',
+    'data: {"type":"response.completed"}\n',
+  ]) {
+    await rejects(() async {
+      await decodeFelorxResponseStream(
+        Stream.value(utf8.encode(invalid)),
+      ).toList();
+    }, (e) => e is FormatException);
+  }
+  await rejects(() async {
+    await decodeFelorxResponseStream(
+      Stream.value(List.filled(65, 97)),
+      maxEventCharacters: 64,
+    ).toList();
+  }, (e) => e is FormatException);
+  await rejects(() async {
+    await decodeFelorxResponseStream(Stream.value([0xff])).toList();
+  }, (e) => e is FormatException);
+
+  final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+  final received = <Map<String, dynamic>>[];
+  final paths = <String>[];
+  final hanging = <HttpResponse>[];
+  final started = <String, Completer<void>>{};
+  final serverErrors = <Object>[];
+  server.listen((request) async {
+    try {
+      check(
+        request.headers.value('authorization') == 'Bearer sdk-test-token',
+        'Bearer auth missing',
+      );
+      check(
+        request.headers.value('X-Felorx-Ai-Provider') == 'test-provider',
+        'Provider header missing',
+      );
+      final body =
+          jsonDecode(await utf8.decoder.bind(request).join())
+              as Map<String, dynamic>;
+      received.add(body);
+      paths.add(request.uri.path);
+      final mode = body['input'] as String;
+      started[mode]?.complete();
+      if (mode == 'json') {
+        request.response.headers.contentType = ContentType.json;
+        request.response.write(
+          jsonEncode({
+            'id': 'resp_test',
+            'object': 'response',
+            'status': 'completed',
+            'output': [],
+          }),
+        );
+        await request.response.close();
+        return;
+      }
+      check(body['stream'] == true, 'Stream flag missing');
+      check(
+        request.headers.value('accept') == 'text/event-stream',
+        'SSE accept missing',
+      );
+      if (mode == 'before-headers') {
+        hanging.add(request.response);
+        return;
+      }
+      if (mode == 'quota') {
+        request.response.statusCode = 429;
+        request.response.headers.contentType = ContentType.json;
+        request.response.write('{"error":{"code":"quota_exceeded"}}');
+        await request.response.close();
+        return;
+      }
+      if (mode == 'wrong-content-type') {
+        request.response.headers.contentType = ContentType.json;
+        request.response.write('{}');
+        await request.response.close();
+        return;
+      }
+      if (mode == 'slow')
+        await Future<void>.delayed(const Duration(seconds: 4));
+      request.response.headers.contentType = ContentType(
+        'text',
+        'event-stream',
+        charset: 'utf-8',
+      );
+      request.response.bufferOutput = false;
+      request.response.write('data: {"type":"response.created"}\n\n');
+      await request.response.flush();
+      if (mode == 'cancel' || mode == 'token-cancel') {
+        hanging.add(request.response);
+        return;
+      }
+      if (mode == 'truncated') {
+        await request.response.close();
+        return;
+      }
+      if (mode == 'stream-error') {
+        request.response.write(
+          'event: error\ndata: {"error":{"code":"upstream_failed"}}\n\n',
+        );
+      } else {
+        for (final byte in utf8.encode(wire)) {
+          request.response.add([byte]);
+        }
+      }
+      await request.response.close();
+    } catch (error) {
+      serverErrors.add(error);
+    }
+  });
+  final client = FelorxApiClient(
+    basePathOverride: 'http://127.0.0.1:${server.port}',
+  );
+  client.setBearerAuth('FelorxBearer', 'sdk-test-token');
+  final requestTokens = <String, CancelToken>{};
+  client.dio.interceptors.add(
+    InterceptorsWrapper(
+      onRequest: (options, handler) {
+        final input =
+            (jsonDecode(options.data as String) as Map)['input'] as String;
+        if (options.cancelToken != null)
+          requestTokens[input] = options.cancelToken!;
+        handler.next(options);
+      },
+    ),
+  );
+  final api = client.getResponsesApi();
+  Stream<FelorxResponseStreamEvent> stream(String mode, {CancelToken? token}) =>
+      api.createResponseStream(
+        felorxResponsesCreateRequest: FelorxResponsesCreateRequest(input: mode),
+        xFelorxAiProvider: 'test-provider',
+        cancelToken: token,
+      );
+  try {
+    final json = await api.createResponse(
+      felorxResponsesCreateRequest: FelorxResponsesCreateRequest(input: 'json'),
+      xFelorxAiProvider: 'test-provider',
+    );
+    check(json.data?.id == 'resp_test', 'Normal JSON authentication/decoding');
+    await rejects(() async {
+      await api.createResponse(
+        felorxResponsesCreateRequest: FelorxResponsesCreateRequest(
+          stream: true,
+        ),
+      );
+    }, (e) => e is ArgumentError);
+    final request = FelorxResponsesCreateRequest(input: 'ok', stream: false);
+    final rawRequest = <String, dynamic>{
+      'input': 'raw',
+      'stream': false,
+      'include': ['reasoning.encrypted_content'],
+      'provider_extension': {'enabled': true},
+    };
+    await api
+        .createResponseRawStream(
+          body: rawRequest,
+          xFelorxAiProvider: 'test-provider',
+        )
+        .toList();
+    check(
+      rawRequest['stream'] == false &&
+          received.last['stream'] == true &&
+          received.last['include'][0] == 'reasoning.encrypted_content' &&
+          received.last['provider_extension']['enabled'] == true,
+      'Raw request extension fields lost or caller body mutated',
+    );
+    final result = await api
+        .createResponseStream(
+          felorxResponsesCreateRequest: request,
+          xFelorxAiProvider: 'test-provider',
+        )
+        .toList()
+        .timeout(const Duration(seconds: 10));
+    check(
+      request.stream == false && result.length == 3 && result.last.isTerminal,
+      'Stream completion or request mutation',
+    );
+    await api
+        .createResponseLegacyStream(
+          felorxResponsesCreateRequest: request,
+          xFelorxAiProvider: 'test-provider',
+        )
+        .toList();
+    check(
+      paths.contains('/api/ai/v1/responses') &&
+          paths.contains('/api/ai/openai/responses'),
+      'Route aliases',
+    );
+    check(
+      (await stream(
+        'slow',
+      ).toList().timeout(const Duration(seconds: 10))).last.isTerminal,
+      'Stream inherited the 3-second JSON timeout',
+    );
+    final errors = await stream('stream-error').toList();
+    check(
+      errors.last.type == 'error' &&
+          errors.last.data['error']['code'] == 'upstream_failed',
+      'In-stream error lost',
+    );
+    await rejects(
+      () async {
+        await stream('quota').toList();
+      },
+      (e) =>
+          e is DioException &&
+          e.response?.statusCode == 429 &&
+          (e.response?.data as Map)['error']['code'] == 'quota_exceeded',
+    );
+    await rejects(() async {
+      await stream('truncated').toList();
+    }, (e) => e is FormatException);
+    await rejects(() async {
+      await stream('wrong-content-type').toList();
+    }, (e) => e is FormatException);
+
+    final parent = CancelToken();
+    final first = Completer<void>();
+    final subscription = stream('cancel', token: parent).listen((_) {
+      if (!first.isCompleted) first.complete();
+    });
+    await first.future.timeout(const Duration(seconds: 5));
+    print('Checking subscription cancellation');
+    await subscription.cancel().timeout(const Duration(seconds: 5));
+    check(
+      !parent.isCancelled,
+      'Subscription cancellation cancelled caller token',
+    );
+    check(
+      requestTokens['cancel']!.isCancelled && requestTokens['cancel'] != parent,
+      'Owned request token was not cancelled',
+    );
+
+    final token = CancelToken();
+    print('Checking caller token cancellation');
+    final tokenFirst = Completer<void>();
+    final tokenError = Completer<Object>();
+    final tokenSubscription = stream('token-cancel', token: token).listen(
+      (_) {
+        if (!tokenFirst.isCompleted) tokenFirst.complete();
+      },
+      onError: (Object e) {
+        if (!tokenError.isCompleted) tokenError.complete(e);
+      },
+    );
+    await tokenFirst.future.timeout(const Duration(seconds: 5));
+    token.cancel();
+    check(
+      await tokenError.future.timeout(const Duration(seconds: 5))
+          is DioException,
+      'Caller token did not abort stream',
+    );
+    await tokenSubscription.cancel();
+
+    started['before-headers'] = Completer<void>();
+    print('Checking cancellation before headers');
+    final pending = stream(
+      'before-headers',
+    ).listen((_) => throw StateError('Unexpected event'));
+    await started['before-headers']!.future.timeout(const Duration(seconds: 5));
+    await pending.cancel().timeout(const Duration(seconds: 2));
+    check(
+      requestTokens['before-headers']!.isCancelled,
+      'Pending HTTP request was not cancelled',
+    );
+    check(serverErrors.isEmpty, 'HTTP fixture failed: $serverErrors');
+    print(
+      'Responses SSE framing, HTTP auth, aliases, errors and cancellation passed',
+    );
+  } catch (error, stack) {
+    stderr.writeln('Responses stream fixture failed: $error\n$stack');
+    rethrow;
+  } finally {
+    client.dio.close(force: true);
+    await server.close(force: true);
+  }
+}

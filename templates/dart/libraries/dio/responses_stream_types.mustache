@@ -1,0 +1,188 @@
+/// A complete Responses SSE event. Unknown response.* events retain their JSON.
+class FelorxResponseStreamEvent {
+  const FelorxResponseStreamEvent(this.type, this.data);
+  final String type;
+  final Map<String, dynamic> data;
+  bool get isTerminal => const {
+    'response.completed', 'response.failed', 'response.incomplete',
+    'response.cancelled', 'error',
+  }.contains(type);
+}
+
+/// Strict UTF-8 and bounded SSE framing, including CRLF split across packets.
+/// A disconnect without a terminal event is never reported as success.
+Stream<FelorxResponseStreamEvent> decodeFelorxResponseStream(
+  Stream<List<int>> bytes, {
+  int maxEventCharacters = 8 * 1024 * 1024,
+}) async* {
+  if (maxEventCharacters < 1) throw ArgumentError.value(maxEventCharacters);
+  var name = '';
+  final data = <String>[];
+  await for (final line in _felorxSseLines(bytes, maxEventCharacters)) {
+    if (line.isEmpty) {
+      if (data.isNotEmpty) {
+        final raw = data.join('\n');
+        dynamic json;
+        try {
+          json = jsonDecode(raw);
+        } on FormatException {
+          throw const FormatException('Invalid Responses event JSON');
+        }
+        if (json is! Map<String, dynamic>) {
+          throw const FormatException('Responses event must be a JSON object');
+        }
+        final type = name.isEmpty ? json['type'] : name;
+        if (type is! String ||
+            !(type == 'error' || RegExp(r'^response\.[a-z0-9_.]{1,180}$').hasMatch(type)) ||
+            (json['type'] != null && json['type'] != type)) {
+          throw const FormatException('Invalid Responses event type');
+        }
+        final event = FelorxResponseStreamEvent(type, json);
+        yield event;
+        if (event.isTerminal) return;
+      }
+      name = '';
+      data.clear();
+    } else if (!line.startsWith(':')) {
+      final separator = line.indexOf(':');
+      final field = separator < 0 ? line : line.substring(0, separator);
+      var value = separator < 0 ? '' : line.substring(separator + 1);
+      if (value.startsWith(' ')) value = value.substring(1);
+      if (field == 'event') name = value;
+      if (field == 'data') data.add(value);
+    }
+  }
+  throw const FormatException('Responses stream ended before a terminal event');
+}
+
+Stream<String> _felorxSseLines(Stream<List<int>> bytes, int limit) async* {
+  var line = StringBuffer();
+  var frameCharacters = 0;
+  var afterCr = false;
+  await for (final chunk in bytes.cast<List<int>>().transform(utf8.decoder)) {
+    var start = 0;
+    for (var i = 0; i < chunk.length; i++) {
+      final code = chunk.codeUnitAt(i);
+      if (afterCr && code == 10) {
+        afterCr = false;
+        start = i + 1;
+        continue;
+      }
+      afterCr = false;
+      if (++frameCharacters > limit) {
+        throw const FormatException('Responses SSE frame exceeds the size limit');
+      }
+      if (code == 10 || code == 13) {
+        line.write(chunk.substring(start, i));
+        final value = line.toString();
+        line = StringBuffer();
+        start = i + 1;
+        afterCr = code == 13;
+        if (value.isEmpty) frameCharacters = 0;
+        yield value;
+      }
+    }
+    line.write(chunk.substring(start));
+  }
+  // Incomplete lines/frames at EOF are deliberately not dispatched.
+}
+
+Stream<FelorxResponseStreamEvent> _felorxResponseStream(
+  Dio dio,
+  String path,
+  Map<String, dynamic> body, {
+  CancelToken? cancelToken,
+  required Map<String, dynamic> headers,
+  required Map<String, dynamic> extra,
+  required Duration receiveTimeout,
+}) {
+  final ownedToken = CancelToken();
+  StreamSubscription<FelorxResponseStreamEvent>? subscription;
+  var cancelled = false;
+  late final StreamController<FelorxResponseStreamEvent> controller;
+  void fail(Object error, StackTrace stack) {
+    if (!cancelled && !controller.isClosed) {
+      controller.addError(error, stack);
+      unawaited(controller.close());
+    }
+  }
+  Future<void> start() async {
+    try {
+      if (cancelToken != null) {
+        if (cancelToken.isCancelled) ownedToken.cancel();
+        unawaited(cancelToken.whenCancel.then((_) {
+          if (!cancelled) ownedToken.cancel();
+        }));
+      }
+      final response = await dio.post<ResponseBody>(
+        path,
+        data: jsonEncode(body),
+        cancelToken: ownedToken,
+        options: Options(
+          responseType: ResponseType.stream,
+          contentType: Headers.jsonContentType,
+          receiveTimeout: receiveTimeout,
+          headers: headers,
+          extra: extra,
+          validateStatus: (_) => true,
+        ),
+      );
+      if (cancelled) return;
+      final bytes = response.data?.stream;
+      if (bytes == null) throw const FormatException('Missing Responses stream');
+      if (response.statusCode != 200) {
+        // Read only a bounded error body. Keep the HTTP status and JSON error
+        // available to callers without buffering arbitrary upstream content.
+        final buffer = <int>[];
+        await for (final chunk in bytes) {
+          if (buffer.length + chunk.length > 64 * 1024) break;
+          buffer.addAll(chunk);
+        }
+        Object? errorData;
+        try { errorData = jsonDecode(utf8.decode(buffer)); } on FormatException { }
+        throw DioException.badResponse(
+          statusCode: response.statusCode ?? 0,
+          requestOptions: response.requestOptions,
+          response: Response<Object?>(
+            requestOptions: response.requestOptions,
+            statusCode: response.statusCode,
+            headers: response.headers,
+            data: errorData,
+          ),
+        );
+      }
+      final contentType = response.headers.value(Headers.contentTypeHeader)
+          ?.split(';').first.trim().toLowerCase();
+      if (contentType != 'text/event-stream') {
+        throw const FormatException('Expected text/event-stream');
+      }
+      subscription = decodeFelorxResponseStream(bytes).listen(
+        controller.add,
+        onError: fail,
+        onDone: () { unawaited(controller.close()); },
+        cancelOnError: true,
+      );
+      if (controller.isPaused) subscription!.pause();
+    } catch (error, stack) {
+      fail(error, stack);
+    }
+  }
+  controller = StreamController<FelorxResponseStreamEvent>(
+    onListen: () { unawaited(start()); },
+    onPause: () => subscription?.pause(),
+    onResume: () => subscription?.resume(),
+    onCancel: () async {
+      cancelled = true;
+      ownedToken.cancel();
+      try {
+        await subscription?.cancel();
+      } on DioException catch (error) {
+        // Cancelling the HTTP body can complete an outstanding async iterator
+        // with the cancellation error. Explicit subscription cancellation is
+        // successful cleanup; unrelated transport failures still propagate.
+        if (!CancelToken.isCancel(error)) rethrow;
+      }
+    },
+  );
+  return controller.stream;
+}

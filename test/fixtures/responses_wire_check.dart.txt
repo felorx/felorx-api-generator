@@ -1,0 +1,58 @@
+import 'dart:convert';
+import 'package:felorx_api_client/felorx_api_client.dart';
+
+void equalJson(Object? actual, Object? expected) {
+  if (jsonEncode(actual) != jsonEncode(expected)) {
+    throw StateError('Responses JSON round trip changed the wire payload');
+  }
+}
+
+void main() {
+  final inputs = <Object>[
+    '你好',
+    [
+      {
+        'role': 'user',
+        'content': [
+          {'type': 'input_text', 'text': '你好'},
+        ],
+      },
+      {
+        'type': 'function_call_output',
+        'call_id': 'call_1',
+        'output': '{"ok":true}',
+      },
+    ],
+  ];
+  final choices = <Object>[
+    'auto',
+    'none',
+    'required',
+    {'type': 'function', 'name': 'lookup'},
+    {'type': 'custom', 'name': 'execute'},
+  ];
+  for (final input in inputs) {
+    for (final choice in choices) {
+      final request = FelorxResponsesCreateRequest(
+        input: input,
+        toolChoice: choice,
+      );
+      final json = jsonDecode(jsonEncode(request)) as Map<String, dynamic>;
+      equalJson(json, {'input': input, 'tool_choice': choice});
+      equalJson(FelorxResponsesCreateRequest.fromJson(json).toJson(), json);
+      final count = FelorxResponsesCountRequest(
+        input: input,
+        toolChoice: choice,
+      );
+      equalJson(
+        FelorxResponsesCountRequest.fromJson(count.toJson()).toJson(),
+        json,
+      );
+    }
+    final compact = FelorxResponsesCompactRequest(input: input);
+    equalJson(
+      FelorxResponsesCompactRequest.fromJson(compact.toJson()).toJson(),
+      {'input': input},
+    );
+  }
+}

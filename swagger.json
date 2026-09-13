@@ -1480,7 +1480,193 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/app/account/deletion-status": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "DeletionStatus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountDeletionStatusQueryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountDeletionStatusQueryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountDeletionStatusQueryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDeletionStatusDto"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden",
@@ -1610,7 +1796,7 @@
         "tags": [
           "Account"
         ],
-        "operationId": "GetAccount",
+        "operationId": "GetAccount_Get_api_app_account",
         "responses": {
           "200": {
             "description": "Success",
@@ -2918,7 +3104,7 @@
         "tags": [
           "AiProvider"
         ],
-        "operationId": "SetDefaultModel",
+        "operationId": "SetDefaultModel_Post_api_app_ai_provider_set_default_model",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3087,7 +3273,7 @@
         "tags": [
           "AiProvider"
         ],
-        "operationId": "SetEnabled",
+        "operationId": "SetEnabled_Post_api_app_ai_provider_id_set_enabled",
         "parameters": [
           {
             "name": "id",
@@ -3267,7 +3453,7 @@
         "tags": [
           "AiProvider"
         ],
-        "operationId": "Test",
+        "operationId": "Test_Post_api_app_ai_provider_id_test",
         "parameters": [
           {
             "name": "id",
@@ -3537,7 +3723,7 @@
         "tags": [
           "AiProviders"
         ],
-        "operationId": "Create",
+        "operationId": "Create_Post_api_ai_providers",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3707,7 +3893,7 @@
         "tags": [
           "AiProviders"
         ],
-        "operationId": "AiProvidersSetEnabled",
+        "operationId": "SetEnabled_Post_api_ai_providers_id_enabled",
         "parameters": [
           {
             "name": "id",
@@ -3767,7 +3953,7 @@
         "tags": [
           "AiProviders"
         ],
-        "operationId": "AiProvidersSetDefaultModel",
+        "operationId": "SetDefaultModel_Post_api_ai_providers_default_model",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3816,7 +4002,7 @@
         "tags": [
           "AiProviders"
         ],
-        "operationId": "AiProvidersTest",
+        "operationId": "Test_Post_api_ai_providers_id_test",
         "parameters": [
           {
             "name": "id",
@@ -3864,6 +4050,2083 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AiProviderDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ai/v1/responses": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "createResponse",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "When stream=true, SSE event/data frames. A terminal response event ends the stream; failures after headers are sent use an error event."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ],
+        "x-felorx-responses-stream": true,
+        "x-felorx-responses-stream-types": true
+      }
+    },
+    "/api/ai/openai/responses": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "createResponseLegacy",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "When stream=true, SSE event/data frames. A terminal response event ends the stream; failures after headers are sent use an error event."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ],
+        "x-felorx-responses-stream": true
+      }
+    },
+    "/api/ai/v1/responses/{id}": {
+      "get": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "retrieveResponse",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "deleteResponse",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxDeletedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/openai/responses/{id}": {
+      "get": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "retrieveResponseLegacy",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "deleteResponseLegacy",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxDeletedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/v1/responses/{id}/cancel": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "cancelResponse",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/openai/responses/{id}/cancel": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "cancelResponseLegacy",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/v1/responses/{id}/input_items": {
+      "get": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "listResponseInputItems",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponseInputItems"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/openai/responses/{id}/input_items": {
+      "get": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "listResponseInputItemsLegacy",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponseInputItems"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/v1/responses/compact": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "compactResponse",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCompactRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxCompactedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/openai/responses/compact": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "compactResponseLegacy",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCompactRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxCompactedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/v1/responses/input_tokens": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Shared native Responses gateway operation.",
+        "operationId": "countResponseInputTokens",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCountRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponseInputTokens"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/openai/responses/input_tokens": {
+      "post": {
+        "tags": [
+          "Responses"
+        ],
+        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
+        "operationId": "countResponseInputTokensLegacy",
+        "parameters": [
+          {
+            "name": "X-Felorx-Ai-Provider",
+            "in": "header",
+            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FelorxResponsesCountRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponseInputTokens"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Request or service failure. Validation middleware may use the host validation error format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FelorxResponsesError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required; response follows the configured authentication handler."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "415": {
+            "description": "Content-Type must be application/json."
+          }
+        },
+        "security": [
+          {
+            "FelorxBearer": [ ]
+          }
+        ]
+      }
+    },
+    "/api/ai/usage/summary": {
+      "get": {
+        "tags": [
+          "AiUsage"
+        ],
+        "operationId": "GetSummary_Get_api_ai_usage_summary",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageSummaryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageSummaryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageSummaryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ai/usage/records": {
+      "get": {
+        "tags": [
+          "AiUsage"
+        ],
+        "operationId": "GetRecords",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skipCount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "maxResultCount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
                 }
               }
             }
@@ -9922,7 +12185,7 @@
         "tags": [
           "AppLocale"
         ],
-        "operationId": "GetListByAppId",
+        "operationId": "GetListByAppId_Get_api_app_app_locale_by_app_id_appId",
         "parameters": [
           {
             "name": "appId",
@@ -11413,7 +13676,7 @@
           "AppPricing"
         ],
         "summary": "获取应用定价方案列表，允许匿名访问供未登录用户查看订阅计划",
-        "operationId": "AppPricingGetListByAppId",
+        "operationId": "GetListByAppId_Get_api_app_app_pricing_by_app_id_appId",
         "parameters": [
           {
             "name": "appId",
@@ -13651,7 +15914,7 @@
           "AppRelease"
         ],
         "summary": "获取最新版本",
-        "operationId": "GetLatest",
+        "operationId": "GetLatest_Get_api_app_app_release_latest",
         "parameters": [
           {
             "name": "AppName",
@@ -15684,7 +17947,7 @@
         "tags": [
           "AuthCenter"
         ],
-        "operationId": "GetSummary",
+        "operationId": "GetSummary_Get_api_app_auth_center_summary",
         "responses": {
           "200": {
             "description": "Success",
@@ -16661,7 +18924,7 @@
           {
             "name": "Architecture",
             "in": "query",
-            "description": "目标架构",
+            "description": "目标架构。",
             "schema": {
               "type": "string"
             }
@@ -17509,7 +19772,7 @@
         "tags": [
           "BuildRecord"
         ],
-        "operationId": "MarkAsSucceeded",
+        "operationId": "MarkAsSucceeded_Post_api_app_build_record_id_mark_as_succeeded",
         "parameters": [
           {
             "name": "id",
@@ -17685,7 +19948,7 @@
         "tags": [
           "BuildRecord"
         ],
-        "operationId": "MarkAsFailed",
+        "operationId": "MarkAsFailed_Post_api_app_build_record_id_mark_as_failed",
         "parameters": [
           {
             "name": "id",
@@ -17853,7 +20116,7 @@
         "tags": [
           "BuildRecord"
         ],
-        "operationId": "MarkAsCanceled",
+        "operationId": "MarkAsCanceled_Post_api_app_build_record_id_mark_as_canceled",
         "parameters": [
           {
             "name": "id",
@@ -18174,7 +20437,7 @@
         "tags": [
           "BuildRecord"
         ],
-        "operationId": "BuildRecordGetLatest",
+        "operationId": "GetLatest_Get_api_app_build_record_latest_appId",
         "parameters": [
           {
             "name": "appId",
@@ -18356,7 +20619,7 @@
         "tags": [
           "Credit"
         ],
-        "operationId": "CreditGetAccount",
+        "operationId": "GetAccount_Get_api_app_credit_account_appId",
         "parameters": [
           {
             "name": "appId",
@@ -19025,7 +21288,7 @@
         "tags": [
           "Credit"
         ],
-        "operationId": "CreateAlipayOrder",
+        "operationId": "CreateAlipayOrder_Post_api_app_credit_alipay_order",
         "requestBody": {
           "content": {
             "application/json": {
@@ -19194,7 +21457,7 @@
         "tags": [
           "Credit"
         ],
-        "operationId": "CreatePayPalOrder",
+        "operationId": "CreatePayPalOrder_Post_api_app_credit_pay_pal_order",
         "requestBody": {
           "content": {
             "application/json": {
@@ -20401,7 +22664,7 @@
         "tags": [
           "DeployRecord"
         ],
-        "operationId": "DeployRecordMarkAsSucceeded",
+        "operationId": "MarkAsSucceeded_Post_api_app_deploy_record_id_mark_as_succeeded",
         "parameters": [
           {
             "name": "id",
@@ -20569,7 +22832,7 @@
         "tags": [
           "DeployRecord"
         ],
-        "operationId": "DeployRecordMarkAsFailed",
+        "operationId": "MarkAsFailed_Post_api_app_deploy_record_id_mark_as_failed",
         "parameters": [
           {
             "name": "id",
@@ -20737,7 +23000,7 @@
         "tags": [
           "DeployRecord"
         ],
-        "operationId": "DeployRecordMarkAsCanceled",
+        "operationId": "MarkAsCanceled_Post_api_app_deploy_record_id_mark_as_canceled",
         "parameters": [
           {
             "name": "id",
@@ -21228,7 +23491,7 @@
         "tags": [
           "DeployRecord"
         ],
-        "operationId": "DeployRecordGetLatest",
+        "operationId": "GetLatest_Get_api_app_deploy_record_latest_appId",
         "parameters": [
           {
             "name": "appId",
@@ -28706,7 +30969,7 @@
         "tags": [
           "OpenAiCompatibleChat"
         ],
-        "operationId": "OpenAiCompatibleChatCreate",
+        "operationId": "Create_Post_api_ai_v1_chat_completions",
         "requestBody": {
           "content": {
             "application/json": {
@@ -29727,6 +31990,344 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/app/remote-pairing/issue-assertion": {
+      "post": {
+        "tags": [
+          "RemotePairing"
+        ],
+        "operationId": "IssueAssertion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemotePairingBindingDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemotePairingBindingDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemotePairingBindingDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingAssertionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingAssertionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingAssertionDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/app/remote-pairing/verify-assertion": {
+      "post": {
+        "tags": [
+          "RemotePairing"
+        ],
+        "operationId": "VerifyAssertion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyRemotePairingAssertionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyRemotePairingAssertionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyRemotePairingAssertionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingVerificationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingVerificationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemotePairingVerificationDto"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden",
@@ -32780,13 +35381,206 @@
         }
       }
     },
+    "/api/app/subscription/store-products/by-app-id/{appId}": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "获取客户端商店购买所需的启用商品映射。商品 ID 本身属于公开商店元数据。",
+        "operationId": "GetStoreProducts",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/BillingProvider"
+            }
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/AppPlatform"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "production"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreProductMappingDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreProductMappingDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreProductMappingDto"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/app/subscription/alipay-order": {
       "post": {
         "tags": [
           "Subscription"
         ],
         "summary": "创建支付宝一次性支付订单",
-        "operationId": "SubscriptionCreateAlipayOrder",
+        "operationId": "CreateAlipayOrder_Post_api_app_subscription_alipay_order",
         "requestBody": {
           "content": {
             "application/json": {
@@ -33107,7 +35901,7 @@
           "Subscription"
         ],
         "summary": "创建 PayPal 订单",
-        "operationId": "SubscriptionCreatePayPalOrder",
+        "operationId": "CreatePayPalOrder_Post_api_app_subscription_pay_pal_order",
         "requestBody": {
           "content": {
             "application/json": {
@@ -38130,7 +40924,7 @@
         "tags": [
           "User"
         ],
-        "operationId": "FindByUsername",
+        "operationId": "FindByUsername_Get_api_identity_users_by_username_userName",
         "parameters": [
           {
             "name": "userName",
@@ -38611,7 +41405,7 @@
         "tags": [
           "UserLookup"
         ],
-        "operationId": "FindByUserName",
+        "operationId": "FindByUserName_Get_api_identity_users_lookup_by_username_userName",
         "parameters": [
           {
             "name": "userName",
@@ -39427,6 +42221,79 @@
           "code": {
             "type": "string",
             "nullable": true
+          },
+          "clientRequestId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "statusToken": {
+            "pattern": "^[A-Za-z0-9_-]{43}$",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountDeletionStatusDto": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "acceptedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retainUntil": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastAttemptAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "attemptCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failureCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountDeletionStatusQueryDto": {
+        "required": [
+          "statusToken"
+        ],
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "statusToken": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]{43}$",
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -39539,7 +42406,17 @@
           "StructuredExtraction",
           "Caption",
           "ImageGeneration",
-          "VideoGeneration"
+          "VideoGeneration",
+          "Responses",
+          "ResponsesStreaming",
+          "ResponsesStateful",
+          "ResponsesWebSocket",
+          "FunctionCalling",
+          "ResponsesBackground",
+          "ResponsesCompaction",
+          "ResponsesInputTokens",
+          "Reasoning",
+          "HostedTools"
         ],
         "type": "string"
       },
@@ -39648,6 +42525,22 @@
             "format": "date-time",
             "nullable": true
           },
+          "verified_capabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiCapability"
+            },
+            "nullable": true
+          },
+          "capability_certificate_version": {
+            "type": "string",
+            "nullable": true
+          },
+          "capability_tested_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
           "provider_id": {
             "type": "string",
             "format": "uuid"
@@ -39687,6 +42580,59 @@
         },
         "additionalProperties": false
       },
+      "AiModelUsageDto": {
+        "type": "object",
+        "properties": {
+          "charge_kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "request_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "input_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cached_input_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "output_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reasoning_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "priced_request_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "unpriced_request_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estimated_cost_microusd": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AiProtocol": {
+        "enum": [
+          "ChatCompletions",
+          "Responses"
+        ],
+        "type": "string"
+      },
       "AiProviderDto": {
         "type": "object",
         "properties": {
@@ -39722,6 +42668,22 @@
             "nullable": true
           },
           "deletionTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "verified_capabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiCapability"
+            },
+            "nullable": true
+          },
+          "capability_certificate_version": {
+            "type": "string",
+            "nullable": true
+          },
+          "capability_tested_at": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -39816,6 +42778,115 @@
           "total_tokens": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AiUsageRecordDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "logical_model": {
+            "type": "string",
+            "nullable": true
+          },
+          "model_charge_kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtime_charge_kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "input_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "output_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total_tokens": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "runtime_milliseconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estimated_model_cost_microusd": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "estimated_runtime_cost_microusd": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "pricing_effective_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pricing_captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pricing_source_url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AiUsageRecordDtoPagedResultDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiUsageRecordDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AiUsageSummaryDto": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "model_usages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiModelUsageDto"
+            },
+            "nullable": true
+          },
+          "runtime_usages": {
+            "type": "array",
+            "items": { },
             "nullable": true
           }
         },
@@ -41002,7 +44073,6 @@
             "$ref": "#/components/schemas/ArtifactType"
           },
           "architecture": {
-            "maxLength": 32,
             "type": "string",
             "nullable": true
           },
@@ -41870,7 +44940,7 @@
           },
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -42026,7 +45096,8 @@
           "Rpm",
           "Zip",
           "Bin",
-          "Other"
+          "Other",
+          "Fdu"
         ],
         "type": "string",
         "description": "Represents the type of an artifact."
@@ -42150,6 +45221,7 @@
           },
           "appName": {
             "maxLength": 64,
+            "minLength": 0,
             "type": "string",
             "description": "发起绑定的应用名。服务端优先使用访问令牌中的可信 app_name 声明。",
             "nullable": true
@@ -42231,7 +45303,6 @@
             "$ref": "#/components/schemas/ArtifactType"
           },
           "architecture": {
-            "maxLength": 32,
             "type": "string",
             "description": "目标架构；空值或空字符串表示通用制品。",
             "nullable": true
@@ -42259,6 +45330,11 @@
             "type": "string",
             "description": "结束时间",
             "format": "date-time",
+            "nullable": true
+          },
+          "logs": {
+            "type": "string",
+            "description": "构建日志",
             "nullable": true
           },
           "errorMessage": {
@@ -42677,6 +45753,7 @@
           },
           "architecture": {
             "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "description": "目标架构（x64、arm64、arm、riscv64、universal 或 multiarch）。",
             "nullable": true
@@ -43515,6 +46592,7 @@
           },
           "architecture": {
             "maxLength": 32,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -43776,6 +46854,10 @@
       "CreateUpdateMessageSourceDto": {
         "type": "object",
         "properties": {
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -43855,6 +46937,8 @@
             "nullable": true
           },
           "values": {
+            "type": "object",
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -44427,7 +47511,7 @@
           },
           "configuration": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -44514,7 +47598,7 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -44549,7 +47633,7 @@
           },
           "configuration": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           },
           "defaultValue": {
@@ -44691,6 +47775,508 @@
         },
         "additionalProperties": false
       },
+      "FelorxCompactedResponse": {
+        "required": [
+          "id",
+          "object",
+          "created_at",
+          "output",
+          "usage"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "enum": [
+              "response.compaction"
+            ],
+            "type": "string"
+          },
+          "created_at": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "output": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/FelorxResponseUsage"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxDeletedResponse": {
+        "required": [
+          "id",
+          "object",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "enum": [
+              "response.deleted"
+            ],
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponse": {
+        "required": [
+          "id",
+          "object",
+          "status",
+          "output"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "enum": [
+              "response"
+            ],
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "queued",
+              "in_progress",
+              "completed",
+              "failed",
+              "cancelled",
+              "incomplete"
+            ],
+            "type": "string"
+          },
+          "output": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "created_at": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "previous_response_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "usage": {
+            "$ref": "#/components/schemas/FelorxResponseUsage"
+          },
+          "error": {
+            "type": "object"
+          },
+          "incomplete_details": {
+            "type": "object"
+          }
+        }
+      },
+      "FelorxResponseInput": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        ]
+      },
+      "FelorxResponseInputItems": {
+        "required": [
+          "object",
+          "data",
+          "has_more"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "enum": [
+              "list"
+            ],
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "first_id": {
+            "type": "string"
+          },
+          "last_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponseInputTokens": {
+        "required": [
+          "object",
+          "input_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "object": {
+            "enum": [
+              "response.input_tokens"
+            ],
+            "type": "string"
+          },
+          "input_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponseToolChoice": {
+        "oneOf": [
+          {
+            "enum": [
+              "auto",
+              "none",
+              "required"
+            ],
+            "type": "string"
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "function",
+                  "custom"
+                ],
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "FelorxResponseUsage": {
+        "required": [
+          "input_tokens",
+          "output_tokens",
+          "total_tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "input_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "output_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "total_tokens": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "input_tokens_details": {
+            "type": "object",
+            "properties": {
+              "cached_tokens": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            "additionalProperties": false
+          },
+          "output_tokens_details": {
+            "type": "object",
+            "properties": {
+              "reasoning_tokens": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponsesCompactRequest": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/FelorxResponseInput"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "previous_response_id": {
+            "type": "string"
+          },
+          "prompt_cache_key": {
+            "type": "string"
+          },
+          "prompt_cache_options": {
+            "type": "object"
+          },
+          "prompt_cache_retention": {
+            "type": "string"
+          },
+          "service_tier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponsesCountRequest": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/FelorxResponseInput"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "previous_response_id": {
+            "type": "string"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "function",
+                    "custom"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "object"
+                },
+                "strict": {
+                  "type": "boolean"
+                },
+                "format": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "tool_choice": {
+            "$ref": "#/components/schemas/FelorxResponseToolChoice"
+          },
+          "parallel_tool_calls": {
+            "type": "boolean"
+          },
+          "reasoning": {
+            "type": "object"
+          },
+          "text": {
+            "type": "object"
+          },
+          "truncation": {
+            "type": "string"
+          },
+          "personality": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FelorxResponsesCreateRequest": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/FelorxResponseInput"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "previous_response_id": {
+            "type": "string"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "function",
+                    "custom"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "object"
+                },
+                "strict": {
+                  "type": "boolean"
+                },
+                "format": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "tool_choice": {
+            "$ref": "#/components/schemas/FelorxResponseToolChoice"
+          },
+          "parallel_tool_calls": {
+            "type": "boolean"
+          },
+          "reasoning": {
+            "type": "object"
+          },
+          "text": {
+            "type": "object"
+          },
+          "truncation": {
+            "type": "string"
+          },
+          "stream": {
+            "type": "boolean"
+          },
+          "store": {
+            "type": "boolean"
+          },
+          "background": {
+            "type": "boolean"
+          },
+          "max_output_tokens": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperature": {
+            "type": "number"
+          },
+          "top_p": {
+            "type": "number"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "service_tier": {
+            "type": "string"
+          },
+          "prompt_cache_key": {
+            "type": "string"
+          },
+          "prompt_cache_retention": {
+            "type": "string"
+          }
+        },
+        "description": "Only function/custom tool declarations are supported. Provider-managed conversation, prompt, item and file references are rejected. Inline input content is supported. Background requests require storage."
+      },
+      "FelorxResponsesError": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "required": [
+              "type",
+              "code",
+              "message"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "param": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
       "FindTenantResultDto": {
         "type": "object",
         "properties": {
@@ -44787,7 +48373,7 @@
           },
           "properties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           }
@@ -44812,7 +48398,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -44835,7 +48421,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -44901,7 +48487,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -44933,7 +48519,7 @@
           },
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -45152,7 +48738,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -45211,7 +48797,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -45454,7 +49040,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -45751,7 +49337,7 @@
           },
           "data": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "description": "JSON格式数据",
             "nullable": true
           }
@@ -45785,6 +49371,14 @@
       "MessageSourceDto": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -45813,6 +49407,10 @@
       "MessageSourceRouteDto": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
           "title": {
             "type": "string",
             "nullable": true
@@ -45855,6 +49453,10 @@
       "MessageSourceRouteSubDto": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
           "routeId": {
             "type": "string",
             "format": "uuid"
@@ -45864,6 +49466,8 @@
             "nullable": true
           },
           "values": {
+            "type": "object",
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -46083,7 +49687,7 @@
           },
           "configuration": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           }
         },
@@ -46235,7 +49839,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "OpsCryptoVaultDto": {
         "type": "object",
@@ -46438,7 +50042,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -46641,7 +50245,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -46679,6 +50283,67 @@
         "type": "string",
         "description": "发布渠道枚举"
       },
+      "RemotePairingAssertionDto": {
+        "type": "object",
+        "properties": {
+          "assertion": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RemotePairingBindingDto": {
+        "required": [
+          "accountHash",
+          "challengeId",
+          "controllerId",
+          "hostId",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "challengeId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "controllerId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "workspaceId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "accountHash": {
+            "minLength": 1,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RemotePairingVerificationDto": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "RemoteServiceErrorInfo": {
         "type": "object",
         "properties": {
@@ -46696,7 +50361,7 @@
           },
           "data": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true
           },
           "validationErrors": {
@@ -47260,7 +50925,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -47288,7 +50953,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -47332,7 +50997,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -47351,6 +51016,14 @@
       "TestAiProviderDto": {
         "type": "object",
         "properties": {
+          "model_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/AiProtocol"
+          },
           "capability": {
             "$ref": "#/components/schemas/AiCapability"
           },
@@ -47405,7 +51078,7 @@
           },
           "enumValues": {
             "type": "array",
-            "items": {},
+            "items": { },
             "nullable": true
           },
           "genericArguments": {
@@ -47598,7 +51271,7 @@
         "properties": {
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           },
@@ -47715,7 +51388,7 @@
           },
           "extraProperties": {
             "type": "object",
-            "additionalProperties": {},
+            "additionalProperties": { },
             "nullable": true,
             "readOnly": true
           }
@@ -48013,6 +51686,50 @@
         "additionalProperties": false,
         "description": "校验结果"
       },
+      "VerifyRemotePairingAssertionDto": {
+        "required": [
+          "accountHash",
+          "assertion",
+          "challengeId",
+          "controllerId",
+          "hostId",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "challengeId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "controllerId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "workspaceId": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+            "type": "string"
+          },
+          "accountHash": {
+            "minLength": 1,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "assertion": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]{43}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "WindowsTimeZone": {
         "type": "object",
         "properties": {
@@ -48022,6 +51739,14 @@
           }
         },
         "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "FelorxBearer": {
+        "type": "http",
+        "description": "Felorx access token for authenticated Responses operations.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

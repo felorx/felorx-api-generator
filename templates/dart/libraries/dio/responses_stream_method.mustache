@@ -1,0 +1,45 @@
+  /// Creates a response and yields complete SSE events as they arrive.
+  /// Cancelling the subscription aborts only this HTTP request. Terminal
+  /// response/error events close the stream; premature EOF is an error.
+  Stream<FelorxResponseStreamEvent> {{nickname}}Stream({
+    required FelorxResponsesCreateRequest felorxResponsesCreateRequest,
+    String? xFelorxAiProvider,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    Duration receiveTimeout = const Duration(minutes: 5),
+  }) => {{nickname}}RawStream(
+    body: felorxResponsesCreateRequest.toJson(),
+    xFelorxAiProvider: xFelorxAiProvider,
+    cancelToken: cancelToken,
+    headers: headers,
+    extra: extra,
+    receiveTimeout: receiveTimeout,
+  );
+
+  /// Preserves additional native request fields not represented by the DTO.
+  Stream<FelorxResponseStreamEvent> {{nickname}}RawStream({
+    required Map<String, dynamic> body,
+    String? xFelorxAiProvider,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    Duration receiveTimeout = const Duration(minutes: 5),
+  }) => _felorxResponseStream(
+    _dio,
+    r'{{{path}}}',
+    {...body, 'stream': true},
+    cancelToken: cancelToken,
+    receiveTimeout: receiveTimeout,
+    headers: {
+      ...?headers,
+      if (xFelorxAiProvider != null) 'X-Felorx-Ai-Provider': xFelorxAiProvider,
+      Headers.acceptHeader: 'text/event-stream',
+    },
+    extra: {
+      ...?extra,
+      'secure': <Map<String, String>>[
+        {'type': 'http', 'scheme': 'bearer', 'name': 'FelorxBearer'},
+      ],
+    },
+  );

@@ -17,6 +17,9 @@ class {{classname}} {
 {{#includeLibraryTemplate}}api/constructor{{/includeLibraryTemplate}}
 
   {{#operation}}
+  {{#vendorExtensions.x-felorx-responses-stream}}
+  {{>responses_stream_method}}
+  {{/vendorExtensions.x-felorx-responses-stream}}
   /// {{summary}}{{^summary}}{{nickname}}{{/summary}}
   /// {{notes}}
   ///
@@ -53,6 +56,11 @@ class {{classname}} {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
+    {{#vendorExtensions.x-felorx-responses-stream}}
+    if (felorxResponsesCreateRequest.stream == true) {
+      throw ArgumentError('Use {{nickname}}Stream for stream=true requests');
+    }
+    {{/vendorExtensions.x-felorx-responses-stream}}
     final _path = r'{{{path}}}'{{#pathParams}}.replaceAll('{' r'{{{baseName}}}' '}', {{#includeLibraryTemplate}}api/query_param{{/includeLibraryTemplate}}.toString()){{/pathParams}};
     final _options = Options(
       method: r'{{#lambda.uppercase}}{{httpMethod}}{{/lambda.uppercase}}',
@@ -147,4 +155,9 @@ class {{classname}} {
 
   {{/operation}}
 }
+{{#operation}}
+{{#vendorExtensions.x-felorx-responses-stream-types}}
+{{>responses_stream_types}}
+{{/vendorExtensions.x-felorx-responses-stream-types}}
+{{/operation}}
 {{/operations}}

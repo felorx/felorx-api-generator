@@ -1,0 +1,153 @@
+package {{packageName}}
+
+import (
+    "bufio"
+    "bytes"
+    "context"
+    "encoding/json"
+    "errors"
+    "io"
+    "fmt"
+    "mime"
+    "net/http"
+    "net/url"
+    "strings"
+    "unicode/utf8"
+)
+
+// FelorxResponseStreamOptions uses a complete Responses endpoint. HTTPClient's
+// transport and timeout are reused; redirects are never followed for generation.
+type FelorxResponseStreamOptions struct {
+    Endpoint string
+    BearerToken string
+    Provider string
+    HTTPClient *http.Client
+    AdditionalHeaders map[string]string
+}
+
+// FelorxResponseHTTPError exposes a bounded JSON body for explicit inspection.
+// Error() never embeds server content or credentials.
+type FelorxResponseHTTPError struct {
+    StatusCode int
+    Body json.RawMessage
+}
+func (e *FelorxResponseHTTPError) Error() string { return fmt.Sprintf("Responses HTTP request failed (%d)", e.StatusCode) }
+
+// StreamResponses preserves native request fields, forces stream=true on a copy,
+// and synchronously delivers events. Context cancellation also aborts HTTP I/O.
+func StreamResponses(ctx context.Context, options FelorxResponseStreamOptions, body map[string]interface{}, emit func(FelorxResponseStreamEvent) error) error {
+    if ctx == nil || body == nil || emit == nil { return errors.New("invalid Responses request arguments") }
+    if err := ctx.Err(); err != nil { return err }
+    endpoint, err := url.Parse(options.Endpoint)
+    if err != nil || endpoint == nil || (endpoint.Scheme != "https" && endpoint.Scheme != "http") || endpoint.Host == "" || endpoint.User != nil || endpoint.Fragment != "" || endpoint.RawQuery != "" {
+        return errors.New("invalid Responses endpoint")
+    }
+    if strings.TrimSpace(options.BearerToken) == "" || strings.ContainsAny(options.BearerToken+options.Provider, "\r\n") { return errors.New("invalid Responses authentication options") }
+    requestBody := make(map[string]interface{}, len(body)+1)
+    for key, value := range body { requestBody[key] = value }
+    requestBody["stream"] = true
+    encoded, err := json.Marshal(requestBody)
+    if err != nil { return err }
+    if len(encoded) > 8*1024*1024 { return errors.New("Responses request exceeds limit") }
+    request, err := http.NewRequestWithContext(ctx, http.MethodPost, endpoint.String(), bytes.NewReader(encoded))
+    if err != nil { return err }
+    for name, value := range options.AdditionalHeaders {
+        if strings.ContainsAny(name+value, "\r\n") { return errors.New("invalid Responses headers") }
+        request.Header.Set(name, value)
+    }
+    request.Header.Set("Authorization", "Bearer "+options.BearerToken)
+    request.Header.Set("Content-Type", "application/json")
+    request.Header.Set("Accept", "text/event-stream")
+    if options.Provider != "" { request.Header.Set("X-Felorx-Ai-Provider", options.Provider) }
+    configured := options.HTTPClient
+    if configured == nil { configured = http.DefaultClient }
+    client := *configured
+    client.CheckRedirect = func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }
+    response, err := client.Do(request)
+    if err != nil { return err }
+    defer response.Body.Close()
+    if response.StatusCode < 200 || response.StatusCode >= 300 {
+        data, readErr := io.ReadAll(io.LimitReader(response.Body, 64*1024+1))
+        if ctx.Err() != nil { return ctx.Err() }
+        failure := &FelorxResponseHTTPError{StatusCode: response.StatusCode}
+        if readErr == nil && len(data) <= 64*1024 && utf8.Valid(data) && json.Valid(data) { failure.Body = data }
+        return failure
+    }
+    mediaType, _, err := mime.ParseMediaType(response.Header.Get("Content-Type"))
+    if err != nil || mediaType != "text/event-stream" { return errors.New("expected a Responses SSE response") }
+    return ReadResponsesStream(ctx, response.Body, emit)
+}
+
+// FelorxResponseStreamEvent preserves native and extension fields without
+// converting JSON numbers to floating point values.
+type FelorxResponseStreamEvent struct {
+    Type string
+    Data map[string]json.RawMessage
+}
+
+// ReadResponsesStream owns body and closes it on completion, cancellation or
+// a sink error. emit is synchronous: a slow consumer applies backpressure.
+// Only a terminal response/error event completes successfully; EOF alone fails.
+func ReadResponsesStream(ctx context.Context, body io.ReadCloser, emit func(FelorxResponseStreamEvent) error) error {
+    if ctx == nil || body == nil || emit == nil { return errors.New("invalid Responses stream arguments") }
+    defer body.Close()
+    done := make(chan struct{})
+    defer close(done)
+    go func() {
+        select { case <-ctx.Done(): _ = body.Close(); case <-done: }
+    }()
+    const maximumFrame = 8 * 1024 * 1024
+    reader := bufio.NewReader(body)
+    var line []byte
+    var data []string
+    event := ""
+    frameBytes := 0
+    firstLine, afterCR := true, false
+    invalid := func() error { return errors.New("invalid Responses event stream") }
+    dispatch := func() (bool, error) {
+        if len(data) == 0 { event = ""; return false, nil }
+        payload := strings.Join(data, "\n")
+        if payload == "[DONE]" { return false, io.ErrUnexpectedEOF }
+        var value map[string]json.RawMessage
+        if !utf8.ValidString(payload) || json.Unmarshal([]byte(payload), &value) != nil || value == nil { return false, invalid() }
+        var kind string
+        if json.Unmarshal(value["type"], &kind) != nil || (kind != "error" && !strings.HasPrefix(kind, "response.")) || (event != "" && event != kind) { return false, invalid() }
+        if err := emit(FelorxResponseStreamEvent{Type: kind, Data: value}); err != nil { return false, err }
+        terminal := kind == "error" || kind == "response.completed" || kind == "response.failed" || kind == "response.incomplete" || kind == "response.cancelled"
+        event, data = "", nil
+        return terminal, nil
+    }
+    finishLine := func() (bool, error) {
+        if firstLine { line = []byte(strings.TrimPrefix(string(line), "\ufeff")); firstLine = false }
+        if !utf8.Valid(line) { return false, invalid() }
+        if len(line) == 0 {
+            frameBytes = 0
+            return dispatch()
+        }
+        text := string(line)
+        line = line[:0]
+        if strings.HasPrefix(text, ":") { return false, nil }
+        field, value, _ := strings.Cut(text, ":")
+        value = strings.TrimPrefix(value, " ")
+        switch field { case "event": event = value; case "data": data = append(data, value) }
+        return false, nil
+    }
+    for {
+        if err := ctx.Err(); err != nil { return err }
+        b, err := reader.ReadByte()
+        if err != nil {
+            if ctx.Err() != nil { return ctx.Err() }
+            if err == io.EOF { return io.ErrUnexpectedEOF }
+            return err
+        }
+        if afterCR && b == '\n' { afterCR = false; continue }
+        afterCR = b == '\r'
+        frameBytes++
+        if frameBytes > maximumFrame { return errors.New("Responses stream frame exceeds limit") }
+        if b == '\r' || b == '\n' {
+            terminal, err := finishLine()
+            if err != nil { return err }
+            if terminal { return nil }
+        } else { line = append(line, b) }
+    }
+}
