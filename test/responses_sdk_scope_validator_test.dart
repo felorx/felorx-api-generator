@@ -134,10 +134,10 @@ void main() {
   );
 
   test(
-    'both generation entry points reject incomplete specs before modifying outputs',
+    'both generation entry points reject platform AI specs before modifying outputs',
     () async {
       final specFile = File('${directory.path}/spec.json');
-      await specFile.writeAsString('{"openapi":"3.0.3","paths":{}}');
+      await specFile.writeAsString('{"openapi":"3.0.3","paths":{"/api/ai/providers":{}}}');
       final sentinel = File('${directory.path}/keep.txt');
       await sentinel.writeAsString('existing SDK');
       final generator = SdkGenerator(

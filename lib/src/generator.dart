@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'responses_sdk_scope_validator.dart';
-import 'go_responses_support.dart';
-import 'axios_responses_support.dart';
+import 'platform_sdk_scope_validator.dart';
 
 /// SDK 生成器
 class SdkGenerator {
@@ -30,7 +28,7 @@ class SdkGenerator {
 
   /// 生成 Dart SDK
   Future<void> generateDart() async {
-    const scope = ResponsesSdkScopeValidator();
+    const scope = PlatformSdkScopeValidator();
     scope.validateSpec(await File(swaggerJsonPath).readAsString());
     print('正在生成 Dart SDK...');
 
@@ -53,15 +51,6 @@ class SdkGenerator {
       configPath,
       '-t',
       effectiveTemplates,
-      // Native JSON values preserve both branches of these wire unions.
-      // dart-dio needs type mappings for fields and schema mappings to avoid
-      // emitting empty, unusable composed model classes.
-      '--type-mappings',
-      'FelorxResponseInput=Object,FelorxResponseToolChoice=Object',
-      '--schema-mappings',
-      'FelorxResponseInput=Object,FelorxResponseToolChoice=Object',
-      '--import-mappings',
-      'FelorxResponseInput=dart:core,FelorxResponseToolChoice=dart:core',
       '-i',
       swaggerJsonPath,
       '--git-user-id',
@@ -92,7 +81,6 @@ class SdkGenerator {
       throw Exception('生成 Dart SDK 失败，退出码: $exitCode');
     }
 
-    await scope.validateGeneratedDirectory(outputDirectory);
     print('Dart SDK 生成完成');
   }
 
@@ -103,7 +91,7 @@ class SdkGenerator {
     required String configFile,
     String? templateDir,
   }) async {
-    const scope = ResponsesSdkScopeValidator();
+    const scope = PlatformSdkScopeValidator();
     scope.validateSpec(await File(swaggerJsonPath).readAsString());
     print('正在生成 $generator SDK...');
 
@@ -162,19 +150,6 @@ class SdkGenerator {
       throw Exception('生成 $generator SDK 失败，退出码: $exitCode');
     }
 
-    if (generator == 'go') {
-      await installGoResponsesSupport(
-        configFile: configFile,
-        outputDirectory: outputDir,
-      );
-    }
-    if (generator == 'typescript-axios') {
-      await installAxiosResponsesSupport(
-        configFile: configFile,
-        outputDirectory: outputDir,
-      );
-    }
-    await scope.validateGeneratedDirectory(outputDir);
     print('$generator SDK 生成完成');
   }
 }

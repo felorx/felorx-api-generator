@@ -1791,6 +1791,156 @@
         }
       }
     },
+    "/api/app/account/send-deletion-code": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "SendDeletionCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/app/account": {
       "get": {
         "tags": [
@@ -1817,6 +1967,308 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/app/account/send-email-confirmation-code": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "SendEmailConfirmationCode",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/app/account/confirm-email": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "ConfirmEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmAccountEmailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmAccountEmailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmAccountEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
           },
           "403": {
             "description": "Forbidden",
@@ -2237,3896 +2689,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app/ai-provider": {
-      "post": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "CreateAiProvider",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "GetAiProviderList",
-        "parameters": [
-          {
-            "name": "Filter",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ProviderType",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/AiProviderType"
-            }
-          },
-          {
-            "name": "Capability",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/AiCapability"
-            }
-          },
-          {
-            "name": "Enabled",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "Sorting",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "SkipCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "MaxResultCount",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app/ai-provider/{id}": {
-      "delete": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "DeleteAiProviderById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "GetAiProviderById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "UpdateAiProvider",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app/ai-provider/set-default-model": {
-      "post": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "SetDefaultModel_Post_api_app_ai_provider_set_default_model",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app/ai-provider/{id}/set-enabled": {
-      "post": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "SetEnabled_Post_api_app_ai_provider_id_set_enabled",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app/ai-provider/{id}/test": {
-      "post": {
-        "tags": [
-          "AiProvider"
-        ],
-        "operationId": "Test_Post_api_app_ai_provider_id_test",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "501": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoteServiceErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/providers": {
-      "get": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "GetList",
-        "parameters": [
-          {
-            "name": "filter",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "provider_type",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/AiProviderType"
-            }
-          },
-          {
-            "name": "providerType",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/AiProviderType"
-            }
-          },
-          {
-            "name": "capability",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/AiCapability"
-            }
-          },
-          {
-            "name": "enabled",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "skipCount",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "maxResultCount",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          },
-          {
-            "name": "sorting",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDtoPagedResultDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "Create_Post_api_ai_providers",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/providers/{id}": {
-      "get": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "GetById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "Update",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateOrUpdateAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "DeleteById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/ai/providers/{id}/enabled": {
-      "post": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "SetEnabled_Post_api_ai_providers_id_enabled",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetAiProviderEnabledDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/providers/default-model": {
-      "post": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "SetDefaultModel_Post_api_ai_providers_default_model",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetDefaultAiModelDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/providers/{id}/test": {
-      "post": {
-        "tags": [
-          "AiProviders"
-        ],
-        "operationId": "Test_Post_api_ai_providers_id_test",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TestAiProviderDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiProviderDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/v1/responses": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "createResponse",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCreateRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              },
-              "text/event-stream": {
-                "schema": {
-                  "type": "string",
-                  "description": "When stream=true, SSE event/data frames. A terminal response event ends the stream; failures after headers are sent use an error event."
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ],
-        "x-felorx-responses-stream": true,
-        "x-felorx-responses-stream-types": true
-      }
-    },
-    "/api/ai/openai/responses": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "createResponseLegacy",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCreateRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              },
-              "text/event-stream": {
-                "schema": {
-                  "type": "string",
-                  "description": "When stream=true, SSE event/data frames. A terminal response event ends the stream; failures after headers are sent use an error event."
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ],
-        "x-felorx-responses-stream": true
-      }
-    },
-    "/api/ai/v1/responses/{id}": {
-      "get": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "retrieveResponse",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "deleteResponse",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxDeletedResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/openai/responses/{id}": {
-      "get": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "retrieveResponseLegacy",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "deleteResponseLegacy",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxDeletedResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/v1/responses/{id}/cancel": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "cancelResponse",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/openai/responses/{id}/cancel": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "cancelResponseLegacy",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/v1/responses/{id}/input_items": {
-      "get": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "listResponseInputItems",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "order",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponseInputItems"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/openai/responses/{id}/input_items": {
-      "get": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "listResponseInputItemsLegacy",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "order",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponseInputItems"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/v1/responses/compact": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "compactResponse",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCompactRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxCompactedResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/openai/responses/compact": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "compactResponseLegacy",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCompactRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxCompactedResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/v1/responses/input_tokens": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Shared native Responses gateway operation.",
-        "operationId": "countResponseInputTokens",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCountRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponseInputTokens"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/openai/responses/input_tokens": {
-      "post": {
-        "tags": [
-          "Responses"
-        ],
-        "description": "Compatibility alias of the /api/ai/v1/responses operation.",
-        "operationId": "countResponseInputTokensLegacy",
-        "parameters": [
-          {
-            "name": "X-Felorx-Ai-Provider",
-            "in": "header",
-            "description": "Optional server-configured provider ID or name. Stored responses remain bound to their original provider.",
-            "schema": {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "JSON object, at most 8 MiB. Duplicate property names are rejected.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FelorxResponsesCountRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponseInputTokens"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "413": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "502": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Request or service failure. Validation middleware may use the host validation error format.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FelorxResponsesError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required; response follows the configured authentication handler."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "415": {
-            "description": "Content-Type must be application/json."
-          }
-        },
-        "security": [
-          {
-            "FelorxBearer": [ ]
-          }
-        ]
-      }
-    },
-    "/api/ai/usage/summary": {
-      "get": {
-        "tags": [
-          "AiUsage"
-        ],
-        "operationId": "GetSummary_Get_api_ai_usage_summary",
-        "parameters": [
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageSummaryDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageSummaryDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageSummaryDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/ai/usage/records": {
-      "get": {
-        "tags": [
-          "AiUsage"
-        ],
-        "operationId": "GetRecords",
-        "parameters": [
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "skipCount",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "maxResultCount",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 20
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiUsageRecordDtoPagedResultDto"
                 }
               }
             }
@@ -17947,7 +14509,7 @@
         "tags": [
           "AuthCenter"
         ],
-        "operationId": "GetSummary_Get_api_app_auth_center_summary",
+        "operationId": "GetSummary",
         "responses": {
           "200": {
             "description": "Success",
@@ -30964,55 +27526,6 @@
         }
       }
     },
-    "/api/ai/v1/chat/completions": {
-      "post": {
-        "tags": [
-          "OpenAiCompatibleChat"
-        ],
-        "operationId": "Create_Post_api_ai_v1_chat_completions",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OpenAiChatCompletionRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OpenAiChatCompletionRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/OpenAiChatCompletionRequestDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiChatCompletionDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiChatCompletionDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AiChatCompletionDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/app/ops-crypto/vault": {
       "get": {
         "tags": [
@@ -42396,502 +38909,6 @@
         },
         "additionalProperties": false
       },
-      "AiCapability": {
-        "enum": [
-          "Chat",
-          "Vision",
-          "Ocr",
-          "ImageLabel",
-          "ProductDetect",
-          "StructuredExtraction",
-          "Caption",
-          "ImageGeneration",
-          "VideoGeneration",
-          "Responses",
-          "ResponsesStreaming",
-          "ResponsesStateful",
-          "ResponsesWebSocket",
-          "FunctionCalling",
-          "ResponsesBackground",
-          "ResponsesCompaction",
-          "ResponsesInputTokens",
-          "Reasoning",
-          "HostedTools"
-        ],
-        "type": "string"
-      },
-      "AiChatChoiceDto": {
-        "type": "object",
-        "properties": {
-          "index": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "$ref": "#/components/schemas/AiChatMessageDto"
-          },
-          "finish_reason": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiChatCompletionDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "object": {
-            "type": "string",
-            "nullable": true
-          },
-          "created": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "model": {
-            "type": "string",
-            "nullable": true
-          },
-          "choices": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiChatChoiceDto"
-            },
-            "nullable": true
-          },
-          "usage": {
-            "$ref": "#/components/schemas/AiUsageDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiChatMessageDto": {
-        "type": "object",
-        "properties": {
-          "role": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiModelDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "creatorId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "lastModificationTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastModifierId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "deleterId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "deletionTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "verified_capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "capability_certificate_version": {
-            "type": "string",
-            "nullable": true
-          },
-          "capability_tested_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "provider_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "route_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "display_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "is_default": {
-            "type": "boolean"
-          },
-          "default_parameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiModelUsageDto": {
-        "type": "object",
-        "properties": {
-          "charge_kind": {
-            "type": "string",
-            "nullable": true
-          },
-          "request_count": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "input_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "cached_input_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "output_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "reasoning_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "total_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "priced_request_count": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "unpriced_request_count": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "estimated_cost_microusd": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiProtocol": {
-        "enum": [
-          "ChatCompletions",
-          "Responses"
-        ],
-        "type": "string"
-      },
-      "AiProviderDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "creationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "creatorId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "lastModificationTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastModifierId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "deleterId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "deletionTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "verified_capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "capability_certificate_version": {
-            "type": "string",
-            "nullable": true
-          },
-          "capability_tested_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "display_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "provider_type": {
-            "$ref": "#/components/schemas/AiProviderType"
-          },
-          "base_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "region": {
-            "type": "string",
-            "nullable": true
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "secret_configured": {
-            "type": "boolean"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "models": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiModelDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiProviderDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiProviderDto"
-            },
-            "nullable": true
-          },
-          "totalCount": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiProviderType": {
-        "enum": [
-          "Mock",
-          "TencentCloud",
-          "OpenAiCompatible"
-        ],
-        "type": "string"
-      },
-      "AiUsageDto": {
-        "type": "object",
-        "properties": {
-          "prompt_tokens": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "completion_tokens": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "total_tokens": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiUsageRecordDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "logical_model": {
-            "type": "string",
-            "nullable": true
-          },
-          "model_charge_kind": {
-            "type": "string",
-            "nullable": true
-          },
-          "runtime_charge_kind": {
-            "type": "string",
-            "nullable": true
-          },
-          "input_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "output_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "total_tokens": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "runtime_milliseconds": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "observed_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "estimated_model_cost_microusd": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "estimated_runtime_cost_microusd": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "pricing_effective_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "pricing_captured_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "pricing_source_url": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiUsageRecordDtoPagedResultDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiUsageRecordDto"
-            },
-            "nullable": true
-          },
-          "totalCount": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AiUsageSummaryDto": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "to": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "model_usages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiModelUsageDto"
-            },
-            "nullable": true
-          },
-          "runtime_usages": {
-            "type": "array",
-            "items": { },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ApiKeyCreateDto": {
         "required": [
           "name"
@@ -45509,6 +41526,20 @@
         },
         "additionalProperties": false
       },
+      "ConfirmAccountEmailDto": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "pattern": "^[0-9]{6}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "ControllerApiDescriptionModel": {
         "type": "object",
         "properties": {
@@ -46095,100 +42126,6 @@
           },
           "productId": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateOrUpdateAiModelDto": {
-        "type": "object",
-        "properties": {
-          "route_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "display_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "is_default": {
-            "type": "boolean"
-          },
-          "default_parameters": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateOrUpdateAiProviderDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "display_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "provider_type": {
-            "$ref": "#/components/schemas/AiProviderType"
-          },
-          "base_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "region": {
-            "type": "string",
-            "nullable": true
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "capabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiCapability"
-            },
-            "nullable": true
-          },
-          "secret": {
-            "type": "string",
-            "nullable": true
-          },
-          "clear_secret": {
-            "type": "boolean"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "models": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateOrUpdateAiModelDto"
-            },
             "nullable": true
           }
         },
@@ -47775,508 +43712,6 @@
         },
         "additionalProperties": false
       },
-      "FelorxCompactedResponse": {
-        "required": [
-          "id",
-          "object",
-          "created_at",
-          "output",
-          "usage"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "object": {
-            "enum": [
-              "response.compaction"
-            ],
-            "type": "string"
-          },
-          "created_at": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          },
-          "output": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "usage": {
-            "$ref": "#/components/schemas/FelorxResponseUsage"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxDeletedResponse": {
-        "required": [
-          "id",
-          "object",
-          "deleted"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "object": {
-            "enum": [
-              "response.deleted"
-            ],
-            "type": "string"
-          },
-          "deleted": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponse": {
-        "required": [
-          "id",
-          "object",
-          "status",
-          "output"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "object": {
-            "enum": [
-              "response"
-            ],
-            "type": "string"
-          },
-          "model": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "queued",
-              "in_progress",
-              "completed",
-              "failed",
-              "cancelled",
-              "incomplete"
-            ],
-            "type": "string"
-          },
-          "output": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "created_at": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          },
-          "previous_response_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "usage": {
-            "$ref": "#/components/schemas/FelorxResponseUsage"
-          },
-          "error": {
-            "type": "object"
-          },
-          "incomplete_details": {
-            "type": "object"
-          }
-        }
-      },
-      "FelorxResponseInput": {
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          }
-        ]
-      },
-      "FelorxResponseInputItems": {
-        "required": [
-          "object",
-          "data",
-          "has_more"
-        ],
-        "type": "object",
-        "properties": {
-          "object": {
-            "enum": [
-              "list"
-            ],
-            "type": "string"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "has_more": {
-            "type": "boolean"
-          },
-          "first_id": {
-            "type": "string"
-          },
-          "last_id": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponseInputTokens": {
-        "required": [
-          "object",
-          "input_tokens"
-        ],
-        "type": "object",
-        "properties": {
-          "object": {
-            "enum": [
-              "response.input_tokens"
-            ],
-            "type": "string"
-          },
-          "input_tokens": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponseToolChoice": {
-        "oneOf": [
-          {
-            "enum": [
-              "auto",
-              "none",
-              "required"
-            ],
-            "type": "string"
-          },
-          {
-            "required": [
-              "type"
-            ],
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": [
-                  "function",
-                  "custom"
-                ],
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          }
-        ]
-      },
-      "FelorxResponseUsage": {
-        "required": [
-          "input_tokens",
-          "output_tokens",
-          "total_tokens"
-        ],
-        "type": "object",
-        "properties": {
-          "input_tokens": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          },
-          "output_tokens": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          },
-          "total_tokens": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          },
-          "input_tokens_details": {
-            "type": "object",
-            "properties": {
-              "cached_tokens": {
-                "minimum": 0,
-                "type": "integer",
-                "format": "int64"
-              }
-            },
-            "additionalProperties": false
-          },
-          "output_tokens_details": {
-            "type": "object",
-            "properties": {
-              "reasoning_tokens": {
-                "minimum": 0,
-                "type": "integer",
-                "format": "int64"
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponsesCompactRequest": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "type": "string"
-          },
-          "input": {
-            "$ref": "#/components/schemas/FelorxResponseInput"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "previous_response_id": {
-            "type": "string"
-          },
-          "prompt_cache_key": {
-            "type": "string"
-          },
-          "prompt_cache_options": {
-            "type": "object"
-          },
-          "prompt_cache_retention": {
-            "type": "string"
-          },
-          "service_tier": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponsesCountRequest": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          },
-          "input": {
-            "$ref": "#/components/schemas/FelorxResponseInput"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "previous_response_id": {
-            "type": "string"
-          },
-          "tools": {
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "name"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "function",
-                    "custom"
-                  ],
-                  "type": "string"
-                },
-                "name": {
-                  "maxLength": 64,
-                  "minLength": 1,
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "parameters": {
-                  "type": "object"
-                },
-                "strict": {
-                  "type": "boolean"
-                },
-                "format": {
-                  "type": "object"
-                }
-              }
-            }
-          },
-          "tool_choice": {
-            "$ref": "#/components/schemas/FelorxResponseToolChoice"
-          },
-          "parallel_tool_calls": {
-            "type": "boolean"
-          },
-          "reasoning": {
-            "type": "object"
-          },
-          "text": {
-            "type": "object"
-          },
-          "truncation": {
-            "type": "string"
-          },
-          "personality": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FelorxResponsesCreateRequest": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          },
-          "input": {
-            "$ref": "#/components/schemas/FelorxResponseInput"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "previous_response_id": {
-            "type": "string"
-          },
-          "tools": {
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "name"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "function",
-                    "custom"
-                  ],
-                  "type": "string"
-                },
-                "name": {
-                  "maxLength": 64,
-                  "minLength": 1,
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "parameters": {
-                  "type": "object"
-                },
-                "strict": {
-                  "type": "boolean"
-                },
-                "format": {
-                  "type": "object"
-                }
-              }
-            }
-          },
-          "tool_choice": {
-            "$ref": "#/components/schemas/FelorxResponseToolChoice"
-          },
-          "parallel_tool_calls": {
-            "type": "boolean"
-          },
-          "reasoning": {
-            "type": "object"
-          },
-          "text": {
-            "type": "object"
-          },
-          "truncation": {
-            "type": "string"
-          },
-          "stream": {
-            "type": "boolean"
-          },
-          "store": {
-            "type": "boolean"
-          },
-          "background": {
-            "type": "boolean"
-          },
-          "max_output_tokens": {
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperature": {
-            "type": "number"
-          },
-          "top_p": {
-            "type": "number"
-          },
-          "metadata": {
-            "type": "object"
-          },
-          "service_tier": {
-            "type": "string"
-          },
-          "prompt_cache_key": {
-            "type": "string"
-          },
-          "prompt_cache_retention": {
-            "type": "string"
-          }
-        },
-        "description": "Only function/custom tool declarations are supported. Provider-managed conversation, prompt, item and file references are rejected. Inline input content is supported. Background requests require storage."
-      },
-      "FelorxResponsesError": {
-        "required": [
-          "error"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "required": [
-              "type",
-              "code",
-              "message"
-            ],
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "code": {
-                "type": "string"
-              },
-              "message": {
-                "type": "string"
-              },
-              "param": {
-                "type": "string",
-                "nullable": true
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "additionalProperties": false
-      },
       "FindTenantResultDto": {
         "type": "object",
         "properties": {
@@ -49795,52 +45230,6 @@
         },
         "additionalProperties": false
       },
-      "OpenAiChatCompletionRequestDto": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "type": "string",
-            "nullable": true
-          },
-          "provider": {
-            "type": "string",
-            "nullable": true
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AiChatMessageDto"
-            },
-            "nullable": true
-          },
-          "temperature": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "top_p": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "max_tokens": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "stream": {
-            "type": "boolean"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": { }
-      },
       "OpsCryptoVaultDto": {
         "type": "object",
         "properties": {
@@ -50528,15 +45917,6 @@
         },
         "additionalProperties": false
       },
-      "SetAiProviderEnabledDto": {
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
       "SetAppLinkedSdksDto": {
         "type": "object",
         "properties": {
@@ -50548,19 +45928,6 @@
             },
             "description": "要关联到应用的 SDK Id 列表（顺序保留）；空列表表示清除全部关联。",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SetDefaultAiModelDto": {
-        "type": "object",
-        "properties": {
-          "model_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "capability": {
-            "$ref": "#/components/schemas/AiCapability"
           }
         },
         "additionalProperties": false
@@ -51007,31 +46374,6 @@
             "type": "string"
           },
           "concurrencyStamp": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TestAiProviderDto": {
-        "type": "object",
-        "properties": {
-          "model_id": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "protocol": {
-            "$ref": "#/components/schemas/AiProtocol"
-          },
-          "capability": {
-            "$ref": "#/components/schemas/AiCapability"
-          },
-          "prompt": {
-            "type": "string",
-            "nullable": true
-          },
-          "image_url": {
             "type": "string",
             "nullable": true
           }
@@ -51501,6 +46843,11 @@
           },
           "title": {
             "type": "string",
+            "nullable": true
+          },
+          "key": {
+            "type": "string",
+            "description": "云空间类型标识（image/video/document/todo/note/billing…），\r\n与同步节点 GET /sync/storage 返回的 items[].key 保持一致。\r\n客户端据此渲染本地化类型名称，不再依赖服务端返回的英文名称。",
             "nullable": true
           },
           "count": {
