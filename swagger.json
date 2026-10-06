@@ -41114,7 +41114,8 @@
           "Zip",
           "Bin",
           "Other",
-          "Fdu"
+          "Fdu",
+          "Fapp"
         ],
         "type": "string",
         "description": "Represents the type of an artifact."
