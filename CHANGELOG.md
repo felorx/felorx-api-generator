@@ -1,3 +1,7 @@
+## 1.9.0
+
+ - **FEAT**(felorx_sdk_generator): 同步 Fapp 制品接口定义.
+
 ## 1.8.0
 
  - **REFACTOR**(felorx_sdk_generator): 将平台 SDK 与独立 AI 网关分离.
