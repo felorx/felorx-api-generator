@@ -42754,6 +42754,10 @@
           },
           "felorxId": {
             "type": "string",
+            "nullable": true
+          },
+          "senderId": {
+            "type": "string",
             "format": "uuid",
             "nullable": true
           },
