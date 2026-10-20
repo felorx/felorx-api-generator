@@ -1,3 +1,7 @@
+## 1.9.1
+
+ - **FIX**(felorx_sdk_generator): 更新消息推送接口规范.
+
 ## 1.9.0
 
  - **FEAT**(felorx_sdk_generator): 同步 Fapp 制品接口定义.
